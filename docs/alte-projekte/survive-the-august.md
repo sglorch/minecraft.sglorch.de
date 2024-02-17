@@ -1,8 +1,10 @@
+import Image from '@theme/IdealImage';
+
 # 2021-08 Survive the August
 
-![Screenshot der Übersichtskarte](/img/STA-Overview.png)
-![Spawn](/img/STA-Spawn.png)
-![Nord-Warp Schiff](/img/STA-Warp-Nord.png)
+<Image img={require('/img/STA-Overview.png')} />
+<Image img={require('/img/STA-Spawn.png')} />
+<Image img={require('/img/STA-Warp-Nord.png')} />
 
 ## Alte Webseite, Stand 30.07.2021
 

@@ -4,7 +4,9 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import {
+  themes as prismThemes
+} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -52,19 +54,39 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 85,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 4, // the max number of images generated between min and max (inclusive)
+        disableInDev: false, // By default, the plugin is inactive in development
+
+      },
+    ],
+
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      announcementBar: {
+        id: 'wip-announcement',
+        content: 'Diese Seite ist noch in Arbeit und wird ständig erweitert.',
+        backgroundColor: '#fafbfc',
+        textColor: '#091E42',
+        isCloseable: false,
+      },
       navbar: {
         title: 'Minecraft Server/Welten',
         logo: {
           alt: 'Site Logo',
           src: 'img/logo.svg',
         },
-        items: [
-          {
+        items: [{
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
@@ -79,20 +101,16 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [
-          {
+        links: [{
             title: 'Docs',
-            items: [
-              {
-                label: 'Startseite',
-                to: '/',
-              },
-            ],
+            items: [{
+              label: 'Startseite',
+              to: '/',
+            }, ],
           },
           {
             title: 'Community',
-            items: [
-              {
+            items: [{
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
@@ -108,12 +126,10 @@ const config = {
           },
           {
             title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
+            items: [{
+              label: 'GitHub',
+              href: 'https://github.com/facebook/docusaurus',
+            }, ],
           },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Stefan Glorch. Built with Docusaurus.`,

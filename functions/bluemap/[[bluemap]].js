@@ -8,10 +8,10 @@ export async function onRequest(context) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
-  const url  = new URL(request.url);
-  const newReq = new Request(new URL("https://minecraft.sglorch.de" + url.pathname + url.search), {cf: {resolveOverride: "zora.sglorch.de"}});
+  let url  = new URL(request.url);
+  let newReq = new Request(new URL("https://minecraft.sglorch.de" + url.pathname + url.search), {cf: {resolveOverride: "zora.sglorch.de"}});
   console.log(newReq);
-  const fetched = await fetch(newReq);
+  let fetched = await fetch(newReq);
   console.log(fetched);
   return fetched;
 }

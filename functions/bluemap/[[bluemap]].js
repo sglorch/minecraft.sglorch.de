@@ -9,7 +9,7 @@ export async function onRequest(context) {
   } = context;
 
   const url  = new URL(request.url);
-  const newReq = new Request(new URL("https://zora.sglorch.de" + url.pathname + url.search), {cf: {resolveOverride: "minecraft.sglorch.de"}});
+  const newReq = new Request(new URL("https://minecraft.sglorch.de" + url.pathname + url.search), {cf: {resolveOverride: "zora.sglorch.de"}});
   
   return await fetch(newReq);
 }

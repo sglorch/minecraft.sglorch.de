@@ -9,10 +9,8 @@ export async function onRequest(context) {
   } = context;
 
   const url  = new URL(request.url);
-  
-  const newReq = new Request(request);
+  const newReq = new Request(new URL("https://zora.sglorch.de/" + url.pathname + url.search));
   newReq.headers.delete("Host");
   newReq.headers.append("Host", "minecraft.sglorch.de");
-  newReq.url = new URL("https://zora.sglorch.de/" + url.pathname + url.search)
   return await fetch(newReq);
 }

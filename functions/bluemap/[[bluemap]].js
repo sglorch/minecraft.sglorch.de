@@ -10,6 +10,8 @@ export async function onRequest(context) {
 
   const url  = new URL(request.url);
   const newReq = new Request(new URL("https://minecraft.sglorch.de" + url.pathname + url.search), {cf: {resolveOverride: "zora.sglorch.de"}});
-  
-  return await fetch(newReq);
+  console.log(newReq);
+  const fetched = await fetch(newReq);
+  console.log(fetched);
+  return fetched;
 }
